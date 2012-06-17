@@ -1,0 +1,60 @@
+.grad-vertical(@start: @grad-start, @end:@grad-end){
+  -pie-background: linear-gradient(top, @start, @end);
+  background: -webkit-gradient(linear, left top, left bottom, from(@start), to(@end));
+  background: -webkit-linear-gradient(top, @start, @end);
+  background: -moz-linear-gradient(top, @start, @end);
+  background: -o-lienar-gradient(top, @start, @end);
+  background: linear-gradient(top, @start, @end);
+}
+
+.button-color-specific(@background-start: @secondary-color, @background-end: @secondary-color, @text-color: @primary-color) {
+  color: @text-color;
+  .grad-vertical(@background-start, @background-end);
+  &:hover {.grad-vertical(lighten(@background-start,10%), @background-end);}
+  &:active {background: darken(@background-start, 10%);}
+}
+
+.connect-button {
+
+  .display-inline-block();
+  width: 185px;
+  height: 29px;
+  font-weight: bold;
+  text-decoration: none;
+  border: 1px transparent;
+  margin-bottom: 5px;
+  .rounded-corner-all(7px);
+
+  &.facebook-connect{
+    .img-container{
+      border-right: 1px solid #92acd7;
+      img{border-right: 1px solid #1f3c6f;}
+    }
+    text-decoration: none;
+    .button-color-specific(#5885a8,#25557b);
+  }
+
+  &.linked-in-connect{
+    .img-container{
+      border-right: 1px solid #a5dbf1;
+      img{border-right: 1px solid #035e83;}
+    }
+    text-decoration: none;
+    .button-color-specific(#8bc4dc,#0375a3);
+  }
+
+  .img-container{
+    .display-inline-block();
+    img {border: none;}
+  }
+
+  span{
+    color: #FFFFFF;
+    font-size: 12px;
+    margin-left: 6px;
+    position: relative;
+    top:2px;
+  }
+}
+
+
